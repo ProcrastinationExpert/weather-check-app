@@ -30,7 +30,6 @@ async function checkWeather(city) {
       minutes: "0" + sunriseDate.getMinutes(),
       seconds: "0" + sunriseDate.getSeconds(),
     };
-    console.log(sunriseTime.hours);
     document.querySelector(".sunrise").innerHTML = `${sunriseTime.hours.slice(
       -2
     )}:${sunriseTime.minutes.slice(-2)}:${sunriseTime.seconds.slice(-2)}`;
@@ -40,7 +39,6 @@ async function checkWeather(city) {
       minutes: "0" + sunsetDate.getMinutes(),
       seconds: "0" + sunsetDate.getSeconds(),
     };
-    console.log(sunsetTime.hours);
     document.querySelector(".sunset").innerHTML = `${sunsetTime.hours.slice(
       -2
     )}:${sunsetTime.minutes.slice(-2)}:${sunsetTime.seconds.slice(-2)}`;
