@@ -15,8 +15,36 @@ async function checkWeather(city) {
     var data = await response.json();
 
     document.querySelector(".city").innerHTML = data.name;
+    document.querySelector(
+      ".country-flag"
+    ).src = `https://countryflagsapi.netlify.app/flag/${data.sys.country}.svg`;
     document.querySelector(".temp").innerHTML =
       Math.round(data.main.temp) + "°C";
+    document.querySelector(".feelslike").innerHTML =
+      "feels like " + Math.round(data.main.feels_like) + "°C";
+    const currentDate = new Date(data.dt * 1000);
+    document.querySelector(".time").innerHTML = `${currentDate}`;
+    const sunriseDate = new Date(data.sys.sunrise * 1000);
+    const sunriseTime = {
+      hours: "0" + sunriseDate.getHours(),
+      minutes: "0" + sunriseDate.getMinutes(),
+      seconds: "0" + sunriseDate.getSeconds(),
+    };
+    console.log(sunriseTime.hours);
+    document.querySelector(".sunrise").innerHTML = `${sunriseTime.hours.slice(
+      -2
+    )}:${sunriseTime.minutes.slice(-2)}:${sunriseTime.seconds.slice(-2)}`;
+    const sunsetDate = new Date(data.sys.sunset * 1000);
+    const sunsetTime = {
+      hours: "0" + sunsetDate.getHours(),
+      minutes: "0" + sunsetDate.getMinutes(),
+      seconds: "0" + sunsetDate.getSeconds(),
+    };
+    console.log(sunsetTime.hours);
+    document.querySelector(".sunset").innerHTML = `${sunsetTime.hours.slice(
+      -2
+    )}:${sunsetTime.minutes.slice(-2)}:${sunsetTime.seconds.slice(-2)}`;
+
     document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
     document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
 

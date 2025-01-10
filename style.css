@@ -61,9 +61,6 @@ body {
   width: 25px;
 }
 
-.weather {
-  display: none;
-}
 .weather-icon {
   width: 200px;
   margin-top: 20px;
@@ -76,6 +73,23 @@ body {
   font-size: 30px;
   font-weight: 400;
   margin-top: -10px;
+}
+
+.areawithflag {
+  display: flex;
+  margin-top: 25px;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: row nowrap;
+  gap: 10px;
+}
+.areawithflag h2 {
+  text-transform: capitalize;
+  line-height: 0.9em;
+}
+.country-flag {
+  width: 35px;
+  border: 1px #ffffff solid;
 }
 
 .details {
@@ -98,6 +112,56 @@ body {
 .wind {
   font-size: 20px;
   margin-top: -6px;
+}
+
+.maininfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.leftside {
+  width: 50%;
+  height: 100%;
+}
+.rightside {
+  display: block;
+  max-width: fit-content;
+  margin: 40px auto 0;
+  width: 50%;
+}
+
+.feelslike {
+  margin-top: 5px;
+  font-style: italic;
+  font-size: 16px;
+}
+
+.maincol {
+  display: flex;
+  text-align: left;
+  margin: 30px auto;
+  box-sizing: border-box;
+  width: 100%;
+}
+.maincol img {
+  width: max(50px, 20%);
+  margin-right: 40px;
+  object-fit: contain;
+}
+.maincol > div {
+  width: 80%;
+}
+.maincol > p {
+  font-size: 20px;
+  font-weight: 600px;
+}
+.time,
+.sunrise,
+.sunset {
+  margin-top: 0.8em;
+  font-size: 25px;
+  font-weight: 700;
 }
 
 .error {
