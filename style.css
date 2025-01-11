@@ -60,7 +60,9 @@ body {
 .search button img {
   width: 25px;
 }
-
+.weather {
+  display: none;
+}
 .weather-icon {
   width: 200px;
   margin-top: 20px;
