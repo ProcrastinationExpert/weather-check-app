@@ -13,6 +13,7 @@ body {
   font-weight: 700;
   font-size: 40px;
   margin: 20px auto 0;
+  text-align: center;
 }
 .card {
   width: 90%;
@@ -24,7 +25,7 @@ body {
     rgba(0, 212, 255, 1) 100%
   );
   color: #fff;
-  margin: 100px auto 0;
+  margin: 30px auto 0;
   border-radius: 10px;
   padding: 40px 35px;
   text-align: center;
@@ -41,12 +42,13 @@ body {
   outline: 0;
   background-color: #ebfffc;
   color: #555;
-  padding: 10px 50px;
+  padding: 10px 30px;
   height: 60px;
   border-radius: 30px;
   flex: 1;
   margin-right: 30px;
   font-size: 1.2em;
+  min-width: 70%;
 }
 .search button {
   border: 0;
@@ -79,7 +81,7 @@ body {
 
 .areawithflag {
   display: flex;
-  margin-top: 25px;
+  margin-top: 35px;
   align-items: flex-end;
   justify-content: center;
   flex-direction: row nowrap;
@@ -119,18 +121,20 @@ body {
 .maininfo {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .leftside {
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: 100%;
+  width: 50%;
 }
 .rightside {
   display: block;
   max-width: fit-content;
   margin: 40px auto 0;
-  width: 50%;
 }
 
 .feelslike {
@@ -142,34 +146,43 @@ body {
 .maincol {
   display: flex;
   text-align: left;
-  margin: 30px auto;
+  margin: 30px auto 0;
   box-sizing: border-box;
   width: 100%;
 }
 .maincol img {
-  width: max(50px, 20%);
+  max-width: 50px;
+  width: 20%;
   margin-right: 40px;
   object-fit: contain;
 }
 .maincol > div {
   width: 80%;
 }
-.maincol > p {
-  font-size: 20px;
-  font-weight: 600px;
+.rightinfotitle {
+  font-size: 18px;
 }
 .time,
 .sunrise,
 .sunset {
-  margin-top: 0.8em;
+  margin-top: 0.4em;
   font-size: 25px;
-  font-weight: 700;
+  font-weight: 500;
 }
-
+.UTC {
+  font-size: 12px;
+  text-align: center;
+}
 .error {
   text-align: left;
   margin-left: 10px;
   font-size: 14px;
   margin-top: 10px;
   display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .maininfo {
+    flex-direction: column;
+  }
 }

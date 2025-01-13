@@ -23,7 +23,7 @@ async function checkWeather(city) {
     document.querySelector(".feelslike").innerHTML =
       "feels like " + Math.round(data.main.feels_like) + "°C";
     const currentDate = new Date(data.dt * 1000);
-    document.querySelector(".time").innerHTML = `${currentDate}`;
+    document.querySelector(".time").innerHTML = `${currentDate.toUTCString()}`;
     const sunriseDate = new Date(data.sys.sunrise * 1000);
     const sunriseTime = {
       hours: "0" + sunriseDate.getHours(),
@@ -42,7 +42,20 @@ async function checkWeather(city) {
     document.querySelector(".sunset").innerHTML = `${sunsetTime.hours.slice(
       -2
     )}:${sunsetTime.minutes.slice(-2)}:${sunsetTime.seconds.slice(-2)}`;
-
+    const localDate = new Date();
+    function pad(val) {
+      return val < 10 ? "0" + val : val;
+    }
+    function createUTCOffset(date) {
+      const sign = date.getTimezoneOffset() > 0 ? "-" : "+";
+      const offset = Math.abs(date.getTimezoneOffset());
+      const hours = pad(Math.floor(offset / 60));
+      const minutes = pad(offset % 60);
+      return sign + " " + hours + ":" + minutes;
+    }
+    let UTCOffset = createUTCOffset(localDate);
+    document.querySelector(".UTC").innerHTML =
+      "All of that is based on your local time (UTC " + UTCOffset + ")";
     document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
     document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
 
